@@ -72,10 +72,4 @@ app.post('/oauth/token', (req, res) => {
     res.send(getAccessTokenResponse);
 });
 
-app.get('/oauth/token', (req, res) => {
-    process.stdout.write("[GET] /oauth/token called\n");
-    var getAccessTokenResponse = JSON.parse(fs.readFileSync('getAccessTokenResponse.json', 'utf8').toString().replace('<access_token>', access_token));
-    res.send(getAccessTokenResponse);
-});
-
 app.listen(port, () => console.log(`Auth0 mock API is running on port ${port}!`))
